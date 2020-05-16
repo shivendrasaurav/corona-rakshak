@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            if (user != "") {
+                alert("Welcome again " + user);
+            } 
+            else{
+                document.getElementById("body").style.display=("block");
+            }
+         }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
+    <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
+    <link href="./styles/style.css" type="text/css" rel="stylesheet">
+    <title>Keep your Distance - Questionnaire</title>
+</head>
+<body onload="checkCookie();">
+    
+    <div id="body" style="display: none;" class="noscroll_bar">
+    
+        <form>
+            <div class="column large6 medium8 small12 fullview center" id="start">
+                <div class="question page_container">
+                    <p style="font-size: 36px;">Hi, Go through these questions and answer them, so we can help you to get personalized Tips related to Covid-19</p>
+                    <br>
+                </div>
+                <div class="options page_container">
+                    <a href="#q1" class="button pro_but">Proceed</a>
+                </div>
+            </div>
+
+            
+            <div class="column large6 medium8 small12 fullview center" id="q1">
+                <div class="question page_container">
+                    What's Your Name
+                </div>
+                <div class="options page_container">
+                    <input type="text" name="name"><br>
+                    <label>Enter your name</label><br><br>
+                    <a href="#q2" class="button pro_but">Proceed</a>
+                </div>
+            </div>
+
+
+            <div class="column large6 medium8 small12 fullview center" id="q2">
+                <div class="question page_container ta_center">
+                    What age group do you belong to?
+                </div>
+                <div class="options page_container">
+                    <a href="#q3" class="button pro_but center">0-20</a>
+                    <a href="#q3" class="button pro_but center">21-40</a>
+                    <a href="#q3" class="button pro_but center">41-60</a>
+                    <a href="#q3" class="button pro_but center">61-80</a>
+                    <a href="#q3" class="button pro_but center">Even Older</a>
+                </div>
+            </div>
+
+
+            <div class="column large6 medium8 small12 fullview center" id="q3">
+                <div class="question page_container ta_center">
+                    Do you have any travel history in past 20~30 days, Domestic or International?
+                </div>
+                <div class="options page_container">
+                    <a href="#q4" class="button pro_but center">Yes</a>
+                    <a href="#q4" class="button pro_but center">No</a>
+                </div>
+            </div>
+
+
+            <div class="column large6 medium8 small12 fullview center" id="q4">
+                <div class="question page_container ta_center">
+                    Are you experiencing any of these Symptoms? Click on as many as applicable.
+                </div>
+                <div class="options page_container">
+                    <a href="#q4" class="button pro_but center">Fever</a>
+                    <a href="#q4" class="button pro_but center">Dry Cough</a>
+                    <a href="#q4" class="button pro_but center">Cold</a>
+                    <a href="#q4" class="button pro_but center">Tiredness</a>
+                    <a href="#q4" class="button pro_but center">Difficulty in Breathing</a>
+                    <a href="#q4" class="button pro_but center">Body Aches</a>
+                    <br><br>
+                    <a href="#q5" class="button pro_but center">Goto Next Question</a>
+                </div>
+            </div>
+
+
+            <div class="column large6 medium8 small12 fullview center" id="q5">
+                <div class="question page_container ta_center">
+                    Did you have any major health issue in the past?
+                </div>
+                <div class="options page_container">
+                    <a href="#q6" class="button pro_but center">Yes</a>
+                    <a href="#q6" class="button pro_but center">No</a>
+                </div>
+            </div>
+
+
+            <div class="column large6 medium8 small12 fullview center" id="q6">
+                <div class="question page_container ta_center">
+                    Have you violated quarantine in last 7 days?
+                </div>
+                <div class="options page_container">
+                    <a href="#q6" class="button pro_but center" onclick="classifyUser();">Yes</a>
+                    <a href="#q6" class="button pro_but center" onclick="classifyUser();">No</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
