@@ -2,11 +2,22 @@
 <html lang="en">
 <head>
     <script>
+        var total=0;
+        var username;
+        var classification;
+
         function setCookie(cname, cvalue, exdays) {
             var d = new Date();
             d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
             var expires = "expires="+d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            document.cookie = "username=" + cname + ";" + expires + "; path=/";
+            document.cookie = "classification=" + cvalue + ";" + expires + "; path=/";
+            console.log(document.cookie);
+        }
+
+        function cook(){
+            setCookie(username, classification, 7);
+            location.reload();
         }
 
         function getCookie(cname) {
@@ -26,13 +37,40 @@
 
         function checkCookie() {
             var user = getCookie("username");
+            var classification = getCookie("classification");
             if (user != "") {
-                alert("Welcome again " + user);
+                alert("Welcome again " + user + " You're " + classification);
             } 
             else{
                 document.getElementById("body").style.display=("block");
             }
          }
+
+         function addpoint(a){
+            total = total + a;
+            if(total>=1 && total<=3){
+                classification = "Totally Safe";
+            }
+            else if(total>=4 && total<=6){
+                classification = "Safe";
+            }
+            else if(total>=7 && total<=9){
+                classification = "Suspected to Infection";
+            }
+            else if(total>=10 && total<=12){
+                classification = "Probably Infected";
+            }
+            else if(total>=13 && total<=15){
+                classification = "Confirmed Infected";
+            }
+            console.log(classification);
+         }
+
+         function setUname(){
+             username = document.getElementById("name").value;
+             window.alert(username);
+         }
+
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,9 +100,9 @@
                     What's Your Name
                 </div>
                 <div class="options page_container">
-                    <input type="text" name="name"><br>
+                    <input type="text" name="name" id="name"><br>
                     <label>Enter your name</label><br><br>
-                    <a href="#q2" class="button pro_but">Proceed</a>
+                    <a href="#q2" class="button pro_but" onclick="setUname();">Proceed</a>
                 </div>
             </div>
 
@@ -74,11 +112,11 @@
                     What age group do you belong to?
                 </div>
                 <div class="options page_container">
-                    <a href="#q3" class="button pro_but center">0-20</a>
-                    <a href="#q3" class="button pro_but center">21-40</a>
-                    <a href="#q3" class="button pro_but center">41-60</a>
-                    <a href="#q3" class="button pro_but center">61-80</a>
-                    <a href="#q3" class="button pro_but center">Even Older</a>
+                    <a href="#q3" class="button pro_but center" onclick="addpoint(1)">0-20</a>
+                    <a href="#q3" class="button pro_but center" onclick="addpoint(0)">21-40</a>
+                    <a href="#q3" class="button pro_but center" onclick="addpoint(1)">41-60</a>
+                    <a href="#q3" class="button pro_but center" onclick="addpoint(2)">61-80</a>
+                    <a href="#q3" class="button pro_but center" onclick="addpoint(3)">Even Older</a>
                 </div>
             </div>
 
@@ -88,8 +126,8 @@
                     Do you have any travel history in past 20~30 days, Domestic or International?
                 </div>
                 <div class="options page_container">
-                    <a href="#q4" class="button pro_but center">Yes</a>
-                    <a href="#q4" class="button pro_but center">No</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(2)">Yes</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(0)">No</a>
                 </div>
             </div>
 
@@ -99,12 +137,12 @@
                     Are you experiencing any of these Symptoms? Click on as many as applicable.
                 </div>
                 <div class="options page_container">
-                    <a href="#q4" class="button pro_but center">Fever</a>
-                    <a href="#q4" class="button pro_but center">Dry Cough</a>
-                    <a href="#q4" class="button pro_but center">Cold</a>
-                    <a href="#q4" class="button pro_but center">Tiredness</a>
-                    <a href="#q4" class="button pro_but center">Difficulty in Breathing</a>
-                    <a href="#q4" class="button pro_but center">Body Aches</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(2)">Fever</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Dry Cough</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Cold</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Tiredness</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(2)">Difficulty in Breathing</a>
+                    <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Body Aches</a>
                     <br><br>
                     <a href="#q5" class="button pro_but center">Goto Next Question</a>
                 </div>
@@ -116,8 +154,8 @@
                     Did you have any major health issue in the past?
                 </div>
                 <div class="options page_container">
-                    <a href="#q6" class="button pro_but center">Yes</a>
-                    <a href="#q6" class="button pro_but center">No</a>
+                    <a href="#q6" class="button pro_but center" onclick="addpoint(1)">Yes</a>
+                    <a href="#q6" class="button pro_but center" onclick="addpoint(0)">No</a>
                 </div>
             </div>
 
@@ -127,8 +165,8 @@
                     Have you violated quarantine in last 7 days?
                 </div>
                 <div class="options page_container">
-                    <a href="#fin" class="button pro_but center">Yes</a>
-                    <a href="#fin" class="button pro_but center">No</a>
+                    <a href="#fin" class="button pro_but center" onclick="addpoint(1)">Yes</a>
+                    <a href="#fin" class="button pro_but center" onclick="addpoint(0)">No</a>
                 </div>
             </div>
 
@@ -139,7 +177,7 @@
                     <br>
                 </div>
                 <div class="options page_container">
-                    <a href="#fin" class="button pro_but center" onclick="window.alert('Only Front End Availaible Now, Working on Back End');">Complete</a>
+                    <a href="#fin" class="button pro_but center" onclick="cook();">Complete</a>
                 </div>
             </div>
 
