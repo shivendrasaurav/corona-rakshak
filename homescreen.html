@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie("username");
+            var classification = getCookie("classification");
+            if (user != "") {
+                window.open("./index.html", "_self", "replace");
+            } 
+            else{
+                document.getElementById("user_nm").innerHTML = user;
+                document.getElementById("user_rl").innerHTML = classification;
+                setuser_rlBG(classification);
+            }
+         }
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
+    <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
+    <link href="./styles/style.css" type="text/css" rel="stylesheet">
+    <title>Keep your Distance - Home</title>
+</head>
+<body>
+
+    <div class="column large6 medium8 small12 fullview center" id="start">
+
+        <div class="page_container">
+
+            <button class="tab large12 medium12 small12 zi2" id="rl_back">
+                <h4>Hi, <span id="user_nm"></span></h4>
+                <h6>You're <span id="user_rl"></span></h6>
+            </button>
+
+            <a href="index.html">sdgsdgsdfs</a>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

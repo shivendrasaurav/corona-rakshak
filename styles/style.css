@@ -1,6 +1,13 @@
+.noscroll_bar{
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+}
+
 .fullview{
     height: 100vh;
+    scroll-snap-align: start;
 }
+
 .question{
     position: relative;
     margin-top: 30vh;
@@ -57,4 +64,45 @@
     width: 200px;
     background: #06a7dd;
     padding: 10px;
+}
+
+.panel{
+    width: 100%;
+    background: #FCFCFC;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 16px;
+}
+
+.home_but{
+    width: 300px;
+    display: block;
+    background: #0065AF;
+    color: #fff;
+    transition: 300ms;
+    text-decoration: none;
+    border-radius: 90px;
+}
+.home_but:hover{
+    background: #06a7dd;
+    transition: 300ms;
+}
+.home_but:active{
+    background: #ff9900;
+    transition: 300ms;
+}
+.home_but:hover::before{
+    display: none;
+}
+.home_but.center{
+    margin: auto;
+    margin-top: 5px;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    display: none;
 }
