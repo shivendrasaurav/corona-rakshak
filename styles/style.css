@@ -16,7 +16,7 @@
 .options{
     margin-top: 5vh;
 }
-.options input[type="text"]{
+.options input[type="text"], input[type="search"]{
     outline: none;
     border: none;
     border-bottom: 2px solid #06a7aa;
@@ -25,12 +25,12 @@
     transition: 300ms;
     width: 100%;
 }
-.options input[type="text"]:hover{
+.options input[type="text"]:hover, input[type="search"]:hover{
     border: none;
     border-bottom: 2px solid #06a7dd;
     transition: 300ms;
 }
-.options input[type="text"]:focus{
+.options input[type="text"]:focus, input[type="search"]:focus{
     border: none;
     border-bottom: 2px solid #ff9900;
     transition: 300ms;
