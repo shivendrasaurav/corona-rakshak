@@ -7,6 +7,10 @@
     height: 100vh;
     scroll-snap-align: start;
 }
+li{
+    width: 105%;
+    margin-left: -5%;
+}
 
 .question{
     position: relative;

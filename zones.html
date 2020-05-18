@@ -8,8 +8,6 @@
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
-            document.getElementById("dist_name").innerHTML = myObj.zones[0].district;
-            document.getElementById("zone").innerHTML = myObj.zones[0].zone;
         }
         };
         xmlhttp.open("GET", "https://api.covid19india.org/zones.json", true);
@@ -35,8 +33,13 @@
         }
 
         function searchDistricts(){
+            var newObj = myObj;
             for(var i=0; i<733; i++){
-                if(document.getElementById("dist_list").value === myObj.zones[i].district){
+                var val = document.getElementById("dist_list").value;
+                var check = newObj.zones[i].district;
+                var valU = val.toUpperCase();
+                var checkU = check.toUpperCase();
+                if(valU === checkU){
                     document.getElementById("dist_name").innerHTML = myObj.zones[i].district;
                     document.getElementById("zone").innerHTML = myObj.zones[i].zone;
                     document.getElementById("rl_back").style.visibility = "visible";
