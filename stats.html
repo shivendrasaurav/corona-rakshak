@@ -4,50 +4,82 @@
 
     <script>
         var myObj;
-        var total_cnf;
-        var total_act;
-        var total_rec;
-        var total_dec;
-        var rec_rate;
-        var death_rate;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             myObj = JSON.parse(this.responseText);
-            total_cnf = myObj.statewise[0].confirmed;
-            console.log(total_cnf);
-            total_cnf = myObj.statewise[0].active;
-            console.log(total_cnf);
-            total_cnf = myObj.statewise[0].recovered;
-            console.log(total_cnf);
-            total_cnf = myObj.statewise[0].deaths;
-            console.log(total_cnf);
-            rec_rate = 
+            var total_cnf = myObj.statewise[0].confirmed;
+            document.getElementById("cnf").innerHTML = total_cnf;
+            var total_act = myObj.statewise[0].active;
+            document.getElementById("act").innerHTML = total_act;
+            var total_rec = myObj.statewise[0].recovered;
+            document.getElementById("rec").innerHTML = total_rec;
+            var total_dec = myObj.statewise[0].deaths;
+            document.getElementById("dec").innerHTML = total_dec;
+            var rec_rate = (total_rec/total_cnf)*100;
+            document.getElementById("rec_r").innerHTML = rec_rate.toFixed(2) + "%";
+            var death_rate = (total_dec/total_cnf)*100;
+            document.getElementById("dec_r").innerHTML = death_rate.toFixed(2) + "%";
+            var del_cnf = myObj.statewise[0].deltaconfirmed;
+            document.getElementById("delta_cnf").innerHTML = "[+" +  del_cnf + "]";
+            var del_rec = myObj.statewise[0].deltarecovered;
+            document.getElementById("delta_rec").innerHTML = "[+" +  del_rec + "]";
+            var del_dec = myObj.statewise[0].deltadeaths;
+            document.getElementById("delta_dec").innerHTML = "[+" +  del_dec + "]";
         }
         };
         xmlhttp.open("GET", "https://api.covid19india.org/data.json", true);
         xmlhttp.send();
+
+        function showstats(){
+        }
 
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
     <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link href="./styles/style.css" type="text/css" rel="stylesheet">
     <title>Keep your Distance - Zone Wise Status</title>
 </head>
-<body>
+<body onload="showstats();">
     
     <div id="home_body" class="noscroll_bar">
         
         <div class="column large6 medium8 small12 fullview center">
             <div class="page_container">
 
-                <br /><br /><br /><br />
                 <h4>National Level Stats</h4>
                 <br /><br />
-                <h5>Confirmed</h5>
-                <br /><br /><br /><br />
+                <button class="tab large6 small12 medium12 confirmed ta_center center">
+                    <label id="delta_cnf" class="ta_center stat"></label>
+                    <h5 id="cnf" class="ta_center stat"></h5>
+                    Confirmed
+                </button>
+                <button class="tab large6 small12 medium12 active ta_center center">
+                    <h5 id="act" class="ta_center stat"></h5>
+                    Active
+                </button>
+                <button class="tab large6 small12 medium12 recovered ta_center center">
+                    <label id="delta_rec" class="ta_center stat"></label>
+                    <h5 id="rec" class="ta_center stat"></h5>
+                    Recovered
+                </button>
+                <button class="tab large6 small12 medium12 deaths ta_center center">
+                    <label id="delta_dec" class="ta_center stat"></label>
+                    <h5 id="dec" class="ta_center stat"></h5>
+                    Deaths
+                </button>
+                <button class="tab large3 small6 medium6 rec_rate ta_center">
+                        <h5 id="rec_r" class="ta_center"></h5>
+                        Recovery Rate
+                </button>
+                <button class="tab large3 small6 medium6 dec_rate ta_center">
+                            <h5 id="dec_r" class="ta_center"></h5>
+                        Death Rate
+                </button>
+                <br /><br />
                 <a href="index.html" class="button home_but center" onclick="">Goto Home</a>
             </div>
         </div>

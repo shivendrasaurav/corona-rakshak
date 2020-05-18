@@ -110,3 +110,44 @@ body::-webkit-scrollbar{
 body::-webkit-scrollbar-thumb {
     display: none;
 }
+
+.tab{
+    background: #EDEDED;
+}
+.confirmed{
+    color: #CC2936;
+    font-family: "Open Sans", "Calibri", "Roboto", "Helvetica Neue";
+    margin-bottom: 10px;
+}
+.recovered{
+    color: #06A77A;
+    font-family: "Open Sans", "Calibri", "Roboto", "Helvetica Neue";
+    margin-bottom: 10px;
+}
+.active{
+    color: #0065AF;
+    font-family: "Open Sans", "Calibri", "Roboto", "Helvetica Neue";
+    margin-bottom: 10px;
+}
+.deceased{
+    color: #1E1E1E;
+    font-family: "Open Sans", "Calibri", "Roboto", "Helvetica Neue";
+    margin-bottom: 10px;
+}
+.stat{
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-family: 'Share Tech Mono', monospace;
+}
+.small6{width: 47.1%;}
+
+.rec_rate{
+    background: #06a77d99;
+    color: #FFF;
+    margin-top: 10px;
+}
+.dec_rate{
+    background: #cc293699;
+    color: #FFF;
+    margin-top: 10px;
+}
