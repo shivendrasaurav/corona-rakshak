@@ -70,14 +70,6 @@ li{
     padding: 10px;
 }
 
-.panel{
-    width: 100%;
-    background: #FCFCFC;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 16px;
-}
-
 .home_but{
     width: 300px;
     display: block;
@@ -150,4 +142,20 @@ body::-webkit-scrollbar-thumb {
     background: #cc293699;
     color: #FFF;
     margin-top: 10px;
+}
+
+.panel{
+    width: 100%;
+    background: #FCFCFC;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+
+.panel li{
+    font-size: 16px;
+    padding: 12px;
+}
+.panel li a{
+    font-weight: 500;
 }
