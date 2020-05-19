@@ -5,12 +5,18 @@
          <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
     </head>
     <form>
+      <!--Using clip from soundbible.com-->
+        <audio id="chatAudio" > 
+            <source src= "http://soundbible.com/2210-SOS-Morse-Code.html" type="audio/mpeg"> 
+        </audio> 
           <button>Connect BT device</button>
     </form>
 
 <script>
-  // var deviceName = 'If want to coonect to specific device, specify name'
-
+  // var deviceName = 'If want to connect to specific device, specify name'
+  var alarmbeep = document.getElementById('BeepAudio');
+  var danger = ["NO","PROBABLY-INFECTED","INFECTED"];
+  var nodanger = ["YES","SAFE",];
   function isWebBluetoothEnabled() {
     if (!navigator.bluetooth) {
       // firefox not supported
@@ -37,7 +43,19 @@
       console.log('Argh! ' + error)
     })
   }
-
+  funtion alarm() {
+      let op = {
+        "alarm": [ {"al": danger} ]
+      "no-alarm" : [ {"no-al" : nodanger} ]
+    }
+    if(alarm)
+    {
+       
+        function play(){ 
+            alarmbeep.play() 
+      }
+    }
+  }
   document.querySelector('form').addEventListener('submit', function(event) {
     event.stopPropagation()
     event.preventDefault()
@@ -46,5 +64,6 @@
       getDeviceInfo()
     }
   })
+
 </script>
 </html>
