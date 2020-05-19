@@ -98,3 +98,21 @@ function resetCookies(){
  function setUname(){
      username = document.getElementById("name").value;
  }
+
+ function openTips(){
+    if(classification === "Totally Safe"){
+        window.open("./tips/tips_totallysafe.html", "_self", "replace");
+    }
+    else if(classification === "Safe"){
+        window.open("./tips/tips_safe.html", "_self", "replace");
+    }
+    else if(classification === "Suspected to Infection"){
+        window.open("./tips/tips_suspects.html", "_self", "replace");
+    }
+    else if(classification === "Probably Infected"){
+        window.open("./tips/tips_probable.html", "_self", "replace");
+    }
+    else if(classification === "Infected"){
+        window.open("./tips/tips_infected.html", "_self", "replace");
+    }     
+ }
