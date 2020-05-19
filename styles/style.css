@@ -159,3 +159,6 @@ body::-webkit-scrollbar-thumb {
 .panel li a{
     font-weight: 500;
 }
+a .panel{
+    text-decoration: none;
+}

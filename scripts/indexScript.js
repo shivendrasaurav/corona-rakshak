@@ -34,22 +34,27 @@ function setuser_rlBG(user_rl){
     if(user_rl === "Totally Safe"){
         document.getElementById("rl_back").style.background = ("#06A77D");
         document.getElementById("rl_back").style.color = ("#FFFFFF");
+        document.getElementById("t_safe").style.display ="block";
     }
     else if(user_rl === "Safe"){
         document.getElementById("rl_back").style.background = ("#28B85B");
         document.getElementById("rl_back").style.color = ("#FFFFFF");
+        document.getElementById("safe").style.display ="block";
     }
     else if(user_rl === "Suspected to Infection"){
         document.getElementById("rl_back").style.background = ("#CCC908");
         document.getElementById("rl_back").style.color = ("#FFFFFF");
+        document.getElementById("susp").style.display ="block";
     }
     else if(user_rl === "Probably Infected"){
         document.getElementById("rl_back").style.background = ("#FF9900");
         document.getElementById("rl_back").style.color = ("#FFFFFF");
+        document.getElementById("prob").style.display ="block";
     }
     else if(user_rl === "Infected"){
         document.getElementById("rl_back").style.background = ("#CC2936");
         document.getElementById("rl_back").style.color = ("#FFFFFF");
+        document.getElementById("inf").style.display ="block";
     }
 }
 
@@ -97,22 +102,4 @@ function resetCookies(){
 
  function setUname(){
      username = document.getElementById("name").value;
- }
-
- function openTips(){
-    if(classification === "Totally Safe"){
-        window.open("./tips/tips_totallysafe.html", "_self", "replace");
-    }
-    else if(classification === "Safe"){
-        window.open("./tips/tips_safe.html", "_self", "replace");
-    }
-    else if(classification === "Suspected to Infection"){
-        window.open("./tips/tips_suspects.html", "_self", "replace");
-    }
-    else if(classification === "Probably Infected"){
-        window.open("./tips/tips_probable.html", "_self", "replace");
-    }
-    else if(classification === "Infected"){
-        window.open("./tips/tips_infected.html", "_self", "replace");
-    }     
  }
