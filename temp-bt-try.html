@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    function myFunc() {
+        navigator.bluetooth.requestLEScan({
+        acceptAllDevices: true,
+        optionalServices: ['battery_service']
+    })
+    .then(device => { /* ... */ })
+    .catch(error => { console.log(error); });
+    }
+
+    </script>
+</head>
+<body>
+    <button onclick="myFunc();">
+        Click Me
+    </button>    
+</body>
+</html>
