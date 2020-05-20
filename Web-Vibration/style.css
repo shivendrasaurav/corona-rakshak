@@ -1,0 +1,25 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.colorfull-btn {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content:center;
+  align-content:center;
+  flex-direction:column;
+  text-align: center;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 22px;
+  font-weight: bold;
+}
+.colorfull-btn { background-color: #EDA4BD }
