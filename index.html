@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
+    <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
+    <link href="./styles/style.css" type="text/css" rel="stylesheet">
+    <title>Keep your Distance - Questionnaire</title>
+</head>
+<body onload="checkCookie();">
+    
+    <div id="quiz_body" style="display: none;" class="noscroll_bar" onscroll="scrolldown();">
+    
+        <div class="column large6 medium8 small12 fullview center" id="start">
+            <div class="question page_container">
+                <p style="font-size: 36px;">Hi, Go through these questions and answer them, so we can help you to get personalized Tips related to Covid-19</p>
+                <br>
+            </div>
+            <div class="options page_container">
+                <a href="#q1" class="button pro_but">Proceed</a>
+            </div>
+        </div>
+
+        
+        <div class="column large6 medium8 small12 fullview center" id="q1">
+            <div class="question page_container">
+                What's Your Name
+            </div>
+            <div class="options page_container">
+                <input type="text" name="name" id="name"><br>
+                <label>Enter your name</label><br><br>
+                <a href="#q2" class="button pro_but" onclick="setUname();">Proceed</a>
+            </div>
+        </div>
+
+
+        <div class="column large6 medium8 small12 fullview center" id="q2">
+            <div class="question page_container ta_center">
+                What age group do you belong to?
+            </div>
+            <div class="options page_container">
+                <a href="#q3" class="button pro_but center" onclick="addpoint(1)">0-20</a>
+                <a href="#q3" class="button pro_but center" onclick="addpoint(0)">21-40</a>
+                <a href="#q3" class="button pro_but center" onclick="addpoint(1)">41-60</a>
+                <a href="#q3" class="button pro_but center" onclick="addpoint(2)">61-80</a>
+                <a href="#q3" class="button pro_but center" onclick="addpoint(3)">Even Older</a>
+            </div>
+        </div>
+
+
+        <div class="column large6 medium8 small12 fullview center" id="q3">
+            <div class="question page_container ta_center">
+                Do you have any travel history in past 20~30 days, Domestic or International?
+            </div>
+            <div class="options page_container">
+                <a href="#q4" class="button pro_but center" onclick="addpoint(2)">Yes</a>
+                <a href="#q4" class="button pro_but center" onclick="addpoint(0)">No</a>
+            </div>
+        </div>
+
+
+        <div class="column large6 medium8 small12 fullview center" id="q4">
+            <div class="question page_container ta_center">
+                Are you experiencing any of these Symptoms? Click on as many as applicable.
+            </div>
+            <div class="options page_container">
+                <a href="#q4" class="button pro_but center" onclick="addpoint(2)">Fever</a>
+                <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Dry Cough</a>
+                <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Cold</a>
+                <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Tiredness</a>
+                <a href="#q4" class="button pro_but center" onclick="addpoint(2)">Difficulty in Breathing</a>
+                <a href="#q4" class="button pro_but center" onclick="addpoint(1)">Body Aches</a>
+                <br><br>
+                <a href="#q5" class="button pro_but center">Goto Next Question</a>
+            </div>
+        </div>
+
+
+        <div class="column large6 medium8 small12 fullview center" id="q5">
+            <div class="question page_container ta_center">
+                Did you have any major health issue in the past?
+            </div>
+            <div class="options page_container">
+                <a href="#q6" class="button pro_but center" onclick="addpoint(1)">Yes</a>
+                <a href="#q6" class="button pro_but center" onclick="addpoint(0)">No</a>
+            </div>
+        </div>
+
+
+        <div class="column large6 medium8 small12 fullview center" id="q6">
+            <div class="question page_container ta_center">
+                Have you violated quarantine in last 7 days?
+            </div>
+            <div class="options page_container">
+                <a href="#fin" class="button pro_but center" onclick="addpoint(1)">Yes</a>
+                <a href="#fin" class="button pro_but center" onclick="addpoint(0)">No</a>
+            </div>
+        </div>
+
+
+        <div class="column large6 medium8 small12 fullview center" id="fin">
+            <div class="question page_container ta_center">
+                <p style="font-size: 36px;">Thank You for answering these questions, Let's move forward now</p>
+                <br>
+            </div>
+            <div class="options page_container">
+                <a href="#fin" class="button pro_but center" onclick="cook();">Complete</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="home_body" style="display: none;" class="noscroll_bar">
+        
+        <div class="column large6 medium8 small12 fullview center">
+
+            <div class="page_container">
+                <div class="large12 medium12 small12 panel zi2" id="rl_back">
+                    <h4>Hi, <span id="user_nm"></span></h4>
+                    <h6>You're <span id="user_rl"></span></h6>
+                </div>
+
+
+                <a class="panel column large12 medium12 small12 zi2" href="./tips/tips_totallysafe.html" id="t_safe" style="display:  none; background: #06A77D77; color: #1e1e1e;">
+                    <p>Get helpful information and tips</p>
+                </a>
+
+                <a class="panel column large12 medium12 small12 zi2" href="./tips/tips_safe.html" id="safe" style="display:  none; background: #28B85B77; color: #1e1e1e;">
+                    <p>Get helpful information and tips</p>
+                </a>
+
+                <a class="panel column large12 medium12 small12 zi2" href="./tips/tips_suspects.html" id="susp" style="display:  none; background: #CCC90877; color: #1e1e1e;">
+                    <p>Get helpful information and tips</p>
+                </a>
+
+                <a class="panel column large12 medium12 small12 zi2" href="./tips/tips_probable.html" id="prob" style="display:  none; background: #FF990077; color: #1e1e1e;">
+                    <p>Get helpful information and tips</p>
+                </a>
+
+                <a class="panel column large12 medium12 small12 zi2" href="./tips/tips_infected.html" id="inf" style="display:  none; background: #CC293677; color: #1e1e1e;">
+                    <p>Get helpful information and tips</p>
+                </a>
+
+
+                <div class="large12 medium12 small12">
+                    <br /><br />
+                    <a href="#start" class="button home_but center" onclick="resetCookies();">Retake Safety Quiz</a>
+                    <br />
+                    <a href="zones.html" class="button home_but center" onclick="">Live Zone Status</a>
+                    <br />
+                    <a href="stats.html" class="button home_but center" onclick="">Current Stats</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+<script src="./scripts/indexScript.js"></script>

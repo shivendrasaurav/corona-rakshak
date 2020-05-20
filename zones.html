@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script>
+        var myObj;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myObj = JSON.parse(this.responseText);
+        }
+        };
+        xmlhttp.open("GET", "https://api.covid19india.org/zones.json", true);
+        xmlhttp.send();
+
+        function setbgCLR(zonetype){
+            if(zonetype === "Green"){
+                document.getElementById("rl_back").style.background = ("#06A77D");
+                document.getElementById("rl_back").style.color = ("#FFFFFF");
+            }
+            else if(zonetype === "Orange"){
+                document.getElementById("rl_back").style.background = ("#FF7700");
+                document.getElementById("rl_back").style.color = ("#FFFFFF");
+            }
+            else if(zonetype === "Red"){
+                document.getElementById("rl_back").style.background = ("#CC2936");
+                document.getElementById("rl_back").style.color = ("#FFFFFF");
+            }
+            else if(zonetype === "Contaminated"){
+                document.getElementById("rl_back").style.background = ("#880088");
+                document.getElementById("rl_back").style.color = ("#FFFFFF");
+            }
+        }
+
+        function searchDistricts(){
+            var newObj = myObj;
+            for(var i=0; i<733; i++){
+                var val = document.getElementById("dist_list").value;
+                var check = newObj.zones[i].district;
+                var valU = val.toUpperCase();
+                var checkU = check.toUpperCase();
+                if(valU === checkU){
+                    document.getElementById("dist_name").innerHTML = myObj.zones[i].district;
+                    document.getElementById("zone").innerHTML = myObj.zones[i].zone;
+                    document.getElementById("rl_back").style.visibility = "visible";
+                    setbgCLR(myObj.zones[i].zone);
+                }
+            }
+        }
+
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
+    <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
+    <link href="./styles/style.css" type="text/css" rel="stylesheet">
+    <title>Keep your Distance - Zone Wise Status</title>
+</head>
+<body>
+    
+    <div id="home_body" class="noscroll_bar">
+        
+        <div class="column large6 medium8 small12 fullview center">
+            <div class="page_container">
+
+                <br /><br /><br /><br />
+                <h5>Search for a District to check status</h5>
+                <form><br /><br /><br /><br />
+                    <input type="search" onkeyup="searchDistricts()" id="dist_list" placeholder="Enter District Name Here">
+                    <br /><br /><br /><br />
+                    <div class="large12 medium12 small12 panel zi2" id="rl_back" style="visibility: hidden;">
+                        <h6><span id="dist_name"></span> is in</h6>
+                        <h3 id="zone">RGO</h3>
+                        <h6>Zone</h6>
+                    </div>
+                </form>
+                <br /><br /><br /><br />
+                <a href="index.html" class="button home_but center" onclick="">Goto Home</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
