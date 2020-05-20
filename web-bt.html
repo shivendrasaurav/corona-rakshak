@@ -19,6 +19,9 @@
 
     return true
   }
+  function playvib() {
+    navigator.vibrate([500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]);
+    }
 
   function getDeviceInfo() {
     let options = {
@@ -27,9 +30,6 @@
     //  "filters": [
     //    { "name": deviceName }
     //  ]
-    }
-    function playvib() {
-    navigator.vibrate([500,110,500,110,450,110,200,110,170,40,450,110,200,110,170,40,500]);
     }
 
     console.log('Requesting Bluetooth Device...')
@@ -44,10 +44,8 @@
     event.preventDefault()
 
     if (isWebBluetoothEnabled()) {
-      getDeviceInfo()
-    }
-    if(getDeviceInfo()){
-      playvib()
+      getDeviceInfo();
+      playvib();
     }
   })
 
