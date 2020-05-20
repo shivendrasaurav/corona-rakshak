@@ -6,15 +6,25 @@
     <title>Document</title>
     <script>
 
+    var lol;
+    let options = {
+        acceptAllDevices: true
+    };
+    function print(dev){
+        console.log("HELLO WORLD");
+        var arr = dev.name;
+        console.log(arr);
+    }
         
     function myFunc() {
         navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
         optionalServices: ['battery_service']
+        }).then(device => {
+            lol = device;
+            print(lol);
         })
-        .then(device => {
-        })
-        .catch(error => { console.log(error); });
+        .catch(error => { console.log("error"); });
 
     }
 
