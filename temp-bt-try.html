@@ -6,19 +6,48 @@
     <title>Document</title>
     <script>
 
-    function myFunc() {
-        navigator.bluetooth.requestLEScan({
-        acceptAllDevices: true,
-        optionalServices: ['battery_service']
-    })
-    .then(device => { /* ... */ })
-    .catch(error => { console.log(error); });
+        
+    function myFunc1() {
+    //    navigator.bluetooth.requestLEScan({
+    //    acceptAllDevices: true,
+    //    optionalServices: ['battery_service']
+    //    })
+    //    .then(device => { /* ... */ })
+    //        .catch(error => { console.log(error); });
+
     }
+    const permissionsToRequest = {
+  permissions: ["bluetoothDevices"],
+  origins: ["./temp-bt-try.html"]
+}
+
+function requestPermissions() {
+
+  function onResponse(response) {
+    if (response) {
+      console.log("Permission was granted");
+    } else {
+      console.log("Permission was refused");
+    }
+    return browser.permissions.getAll();  
+  }
+
+  browser.permissions.request(permissionsToRequest)
+    .then(onResponse)
+    .then((currentPermissions) => {
+    console.log(`Current permissions:`, currentPermissions);
+  });
+}
+
+chrome.bluetooth.startDiscovery(function myFunc(){
+        var devicesArray = 1;
+        console.log(devicesArray);
+    });
 
     </script>
 </head>
 <body>
-    <button onclick="myFunc();">
+    <button>
         Click Me
     </button>    
 </body>
