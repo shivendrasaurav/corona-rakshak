@@ -12,10 +12,14 @@
     <p id="demo"></p>
     
     <script>
+
+    positionOptions.enableHighAccuracy = true;
+
     var x = document.getElementById("demo");
     
     function getLocation() {
       if (navigator.geolocation) {
+        positionOptions.enableHighAccuracy = true;
         navigator.geolocation.watchPosition(showPosition);
       } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
@@ -23,8 +27,20 @@
     }
         
     function showPosition(position) {
+        positionOptions.enableHighAccuracy = true;
         x.innerHTML="Latitude: " + position.coords.latitude + 
         "<br>Longitude: " + position.coords.longitude;
+
+        navigator.bluetooth.requestDevice({
+        acceptAllDevices: true,
+        optionalServices: ['battery_service']
+        })
+        .then(device => {
+            lol = device;
+            print(lol);
+        })
+        .catch(error => { console.log("error"); });
+
     }
     </script>
     
