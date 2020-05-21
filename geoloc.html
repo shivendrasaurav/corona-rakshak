@@ -11,39 +11,28 @@
 
     <p id="demo"></p>
     
-    <script>
 
-    positionOptions.enableHighAccuracy = true;
-
-    var x = document.getElementById("demo");
+</body>
+</html>
     
-    function getLocation() {
-      if (navigator.geolocation) {
-        positionOptions.enableHighAccuracy = true;
-        navigator.geolocation.watchPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-        
-    function showPosition(position) {
-        positionOptions.enableHighAccuracy = true;
-        x.innerHTML="Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude;
-
-        navigator.bluetooth.requestDevice({
-        acceptAllDevices: true,
-        optionalServices: ['battery_service']
-        })
-        .then(device => {
-            lol = device;
-            print(lol);
-        })
-        .catch(error => { console.log("error"); });
-
-    }
+    <script src="./scripts/geoPosition.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script type="text/javascript">
+        if(geoPosition.init()){  // Geolocation Initialisation
+                navigator.geolocation.watchPosition(success_callback,error_callback,{enableHighAccuracy:true, maximumAge: 10});
+        }else{
+                // You cannot use Geolocation in this device
+        }
+        geoPositionSimulator.init(); 
+    
+        // p : geolocation object
+        function success_callback(p){
+                var a = p.coords.latitude;
+                var b = p.coords.longitude;
+                document.getElementById("demo").innerHTML = "Latiture: " + a + "<br>Longitude: " + b + "<br>Accuracy: " + p.coords.accuracy;
+            }
+    
+        function error_callback(p){
+            // p.message : error message
+        }
     </script>
-    
-    </body>
-    </html>
-    
