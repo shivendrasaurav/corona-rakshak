@@ -7,36 +7,27 @@
 </head>
 <body>
     
-    <button onclick="showGeoLoc();">Click to Get Geo Location</button>
-    <h1>Latitude: <span id="lat"></span></h1>
-    <h2>Longitude: <span id="log"></span></h2>
-    <p>Accuracy: <span id="acc"></span></p>
+    <button onclick="getLocation()">Try It</button>
 
-</body>
-</html>
-
-<script>
-    var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
-function success(pos) {
-  var crd = pos.coords;
-
-  console.log('Your current position is:');
-  console.log(`Latitude : ${crd.latitude}`);
-  console.log(`Longitude: ${crd.longitude}`);
-  console.log(`More or less ${crd.accuracy} meters.`);
-  document.getElementById("lat").innerHTML = crd.latitude;
-  document.getElementById("log").innerHTML = crd.longitude;
-  document.getElementById("acc").innerHTML = crd.accuracy;
-}
-
-function error(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
-navigator.geolocation.getCurrentPosition(success, error, options);
-</script>
+    <p id="demo"></p>
+    
+    <script>
+    var x = document.getElementById("demo");
+    
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+        
+    function showPosition(position) {
+        x.innerHTML="Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+    }
+    </script>
+    
+    </body>
+    </html>
+    
