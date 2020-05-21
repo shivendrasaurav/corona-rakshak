@@ -19,7 +19,7 @@
     
     <script type="text/javascript">
         if(geoPosition.init()){  // Geolocation Initialisation
-                navigator.geolocation.watchPosition(success_callback,error_callback,{enableHighAccuracy:true, maximumAge: 10});
+                navigator.geolocation.watchPosition(success_callback,error_callback,{enableHighAccuracy:true, maximumAge: 5000});
         }else{
                 // You cannot use Geolocation in this device
         }
@@ -36,3 +36,14 @@
             // p.message : error message
         }
     </script>
+ <!--
+
+    php:
+
+    1. open data base and update position of one device in both the devices
+    2. calculate distance between them using maths
+    3. make php and javascript come in sync, means, php update() should run every 5 seconds
+    4. make an Iframe to display output in different window
+    5. make geolocation parent window with no output, and every other page in Iframe
+
+ -->
