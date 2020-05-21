@@ -10,6 +10,7 @@
     <button onclick="showGeoLoc();">Click to Get Geo Location</button>
     <h1>Latitude: <span id="lat"></span></h1>
     <h2>Longitude: <span id="log"></span></h2>
+    <p>Accuracy: <span id="acc"></span></p>
 
 </body>
 </html>
@@ -30,6 +31,7 @@ function success(pos) {
   console.log(`More or less ${crd.accuracy} meters.`);
   document.getElementById("lat").innerHTML = crd.latitude;
   document.getElementById("log").innerHTML = crd.longitude;
+  document.getElementById("acc").innerHTML = crd.accuracy;
 }
 
 function error(err) {
