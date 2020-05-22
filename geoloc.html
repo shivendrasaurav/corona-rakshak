@@ -41,19 +41,19 @@
 
         function printIT(dev){
             var arr = dev.name;
-            document.getElementById("device").innerHTML = "Device Name: " + arr;
+            document.getElementById("device").innerHTML = arr + "Is too near, Please maintain distance";
         }
 
         function getDevices(){
             navigator.bluetooth.requestDevice({
             acceptAllDevices: true,
-            optionalServices: ['battery_service']
+            enableHighAccuracy: true,
             })
             .then(device => {
                 console.log(device.name);
-                var power = BluetoothAdvertisingData.txPower;
-                console.log(power);
+                printIT(device);
             })
+
         }
     </script>
 

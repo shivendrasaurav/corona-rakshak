@@ -8,7 +8,7 @@
     <link href="./styles/style.css" type="text/css" rel="stylesheet">
     <title>Keep your Distance - Questionnaire</title>
 </head>
-<body onload="checkCookie();">
+<body onload="checkCookie(); setStats();">
     
     <div id="quiz_body" style="display: none;" class="noscroll_bar" onscroll="scrolldown();">
     
@@ -149,7 +149,56 @@
                     <br />
                     <a href="zones.html" class="button home_but center" onclick="">Live Zone Status</a>
                     <br />
-                    <a href="stats.html" class="button home_but center" onclick="">Current Stats</a>
+                    <a href="stats.html" class="button home_but center" onclick="">National Stats</a>
+                    <br /><br />
+                    <br /><br />
+
+                    <button class="tab large3 small12 medium6 ta_center center zi2">
+                        You've interacted with
+                        <p id="d_int" class="ta_center stat hdg">20</p>
+                        People
+                    </button>
+    
+                    <br />
+                    <a href="#scores_body" class="button home_but center" onclick="showscores(); getDevices();">Social Distancing Score</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="scores_body" style="display: none;" class="noscroll_bar">
+        
+        <div class="column large6 medium8 small12 fullview center">
+
+            <div class="page_container">
+
+
+                <div class="large12 medium12 small12">
+                    <br /><br />
+                    <span id="message"></span>
+                    <button class="tab large3 small12 medium6 ta_center center zi2">
+                        You've interacted with
+                        <p id="d_tot" class="ta_center stat hdg">20</p>
+                        People
+                    </button>
+                    <br />
+                    <button class="tab large3 small12 medium6 ta_center center zi2">
+                        You broke Social Distancing
+                        <p id="d_int1" class="ta_center stat hdg">20</p>
+                        Times
+                    </button>
+                    <br /><br />
+                    <button class="tab large6 small12 medium12 ta_center center zi2" id="sdgrade">
+                        <label class="ta_center stat" id="percent">11%</label>
+                        <p id="grade" class="ta_center stat hdg">F</p>
+                        Social Distance Grade
+                    </button>
+    
+
+                    <br />
+                    <a href="#home_body" class="button home_but center" onclick="hidescores();">Goto Home</a>
                 </div>
             </div>
         </div>
@@ -160,3 +209,4 @@
 </html>
 
 <script src="./scripts/indexScript.js"></script>
+<script src="./scripts/bluetoothScripts.js"></script>

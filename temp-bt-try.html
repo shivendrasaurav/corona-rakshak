@@ -29,7 +29,7 @@
     function myFunc() {
         navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
-        optionalServices: ['battery_service']
+        acceptAllAdvertisements: true
         })
         .then(device => {
             lol = device;

@@ -131,6 +131,11 @@ body::-webkit-scrollbar-thumb {
     letter-spacing: 5px;
     font-family: 'Share Tech Mono', monospace;
 }
+.hdg{
+    padding: 0px;
+    margin: 6px;
+    font-size: 36px;
+}
 .small6{width: 47.1%;}
 
 .rec_rate{
@@ -161,4 +166,7 @@ body::-webkit-scrollbar-thumb {
 }
 a .panel{
     text-decoration: none;
+}
+p{
+    padding: 6px;
 }

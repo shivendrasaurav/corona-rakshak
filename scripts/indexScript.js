@@ -103,3 +103,13 @@ function resetCookies(){
  function setUname(){
      username = document.getElementById("name").value;
  }
+
+ function showscores(){
+    document.getElementById("home_body").style.display = "none";
+    document.getElementById("scores_body").style.display = "block";
+}
+
+function hidescores(){
+    document.getElementById("home_body").style.display = "block";
+    document.getElementById("scores_body").style.display = "none";
+}
