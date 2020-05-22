@@ -10,8 +10,7 @@ body, p, span, h1, h2, h3, h4, h5{
     height: 102vh;
 }
 li{
-    width: 105%;
-    margin-left: -5%;
+    padding: 6px;
 }
 
 .question{
