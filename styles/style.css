@@ -1,11 +1,9 @@
 .noscroll_bar{
     overflow: auto;
-    scroll-snap-type: y mandatory;
 }
 
 .fullview{
     height: 100vh;
-    scroll-snap-align: start;
 }
 li{
     width: 105%;
@@ -14,7 +12,7 @@ li{
 
 .question{
     position: relative;
-    margin-top: 30vh;
+    margin-top: 15vh;
     font-size: 24px;
 }
 .options{
@@ -134,9 +132,9 @@ body::-webkit-scrollbar-thumb {
 .hdg{
     padding: 0px;
     margin: 6px;
-    font-size: 36px;
+    font-size: 30px;
 }
-.small6{width: 47.1%;}
+.small6{width: 46%;}
 
 .rec_rate{
     background: #06a77d99;
@@ -155,6 +153,7 @@ body::-webkit-scrollbar-thumb {
     margin-top: 20px;
     margin-bottom: 20px;
     overflow-y: auto;
+    padding: 6px;
 }
 
 .panel li{

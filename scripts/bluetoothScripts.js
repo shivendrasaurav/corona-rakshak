@@ -159,13 +159,13 @@ function setStats(dev){
             makeCookie("d_int", d_int, 0.5);
         }
         else{
-            makeCookie("d_tot", 1, 1);
-            makeCookie("d_int", 1, 1);
+            makeCookie("d_tot", 0, 1);
+            makeCookie("d_int", 0, 1);
         }
     } 
     else{
-        makeCookie("w_tot", 1, 7)
-        makeCookie("w_int", 1, 7)
+        makeCookie("w_tot", 0, 7)
+        makeCookie("w_int", 0, 7)
     }
     var percent = (d_int/d_tot);
     var new_percent = percent*100;
