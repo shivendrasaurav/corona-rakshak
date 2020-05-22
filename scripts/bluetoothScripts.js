@@ -125,7 +125,7 @@ function updateStats(dev){
     console.log(d_int);
     console.log(d_tot);
     console.log(sd_percent*100);
-    document.getElementById("d_int").innerHTML = d_int;
+    document.getElementById("d_int").innerHTML = d_tot;
     document.getElementById("d_int1").innerHTML = d_int;
     document.getElementById("d_tot").innerHTML = d_tot;
     document.getElementById("percent").innerHTML = sd_percent.toFixed(2) + "%";
@@ -173,7 +173,7 @@ function setStats(dev){
     console.log(d_int);
     console.log(d_tot);
     console.log(sd_percent);
-    document.getElementById("d_int").innerHTML = d_int;
+    document.getElementById("d_int").innerHTML = d_tot;
     document.getElementById("d_int1").innerHTML = d_int;
     document.getElementById("d_tot").innerHTML = d_tot;
     document.getElementById("percent").innerHTML = sd_percent.toFixed(2) + "%";
