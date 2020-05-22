@@ -1,9 +1,13 @@
+body, p, span, h1, h2, h3, h4, h5{
+    font-family: 'Noto Sans', sans-serif;
+}
+
 .noscroll_bar{
     overflow: auto;
 }
 
 .fullview{
-    height: 100vh;
+    height: 102vh;
 }
 li{
     width: 105%;
@@ -12,7 +16,7 @@ li{
 
 .question{
     position: relative;
-    margin-top: 15vh;
+    margin-top: 10vh;
     font-size: 24px;
 }
 .options{
