@@ -2,12 +2,20 @@ body, p, span, h1, h2, h3, h4, h5{
     font-family: 'Noto Sans', sans-serif;
 }
 
+body{
+    background-image: linear-gradient(586deg, rgba(225, 225, 225, 0.05) 0%, rgba(225, 225, 225, 0.05) 33.333%,rgba(114, 114, 114, 0.05) 33.333%, rgba(114, 114, 114, 0.05) 66.666%,rgba(52, 52, 52, 0.05) 66.666%, rgba(52, 52, 52, 0.05) 99.999%),linear-gradient(322deg, rgba(181, 181, 181, 0.05) 0%, rgba(181, 181, 181, 0.05) 33.333%,rgba(27, 27, 27, 0.05) 33.333%, rgba(27, 27, 27, 0.05) 66.666%,rgba(251, 251, 251, 0.05) 66.666%, rgba(251, 251, 251, 0.05) 99.999%),linear-gradient(481deg, rgba(98, 98, 98, 0.05) 0%, rgba(98, 98, 98, 0.05) 33.333%,rgba(222, 222, 222, 0.05) 33.333%, rgba(222, 222, 222, 0.05) 66.666%,rgba(228, 228, 228, 0.05) 66.666%, rgba(228, 228, 228, 0.05) 99.999%),linear-gradient(346deg, rgba(252,220,252, 0.6666666666666666),rgba(140,188,252, 0.7333333333333333));
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: 0% 0%;
+    color: #1e1e1e;
+}
+
 .noscroll_bar{
     overflow: auto;
 }
 
 .fullview{
-    height: 102vh;
+    height: 100vh;
 }
 ul{
     width: 110%;
@@ -26,6 +34,7 @@ li{
     margin-top: 5vh;
 }
 .options input[type="text"], input[type="search"]{
+    background: inherit;
     outline: none;
     border: none;
     border-bottom: 2px solid #06a7aa;
@@ -163,9 +172,10 @@ body::-webkit-scrollbar-thumb {
     padding: 6px;
 }
 
-a .panel{
+a.panel p{
     text-decoration: none;
     font-size: 20px;
+    color: #FFF;
 }
 p{
     padding: 6px;
