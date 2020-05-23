@@ -9,7 +9,7 @@
 	"theme_color" : "blue",
 	"description" : "App to check whether Social Distancing is being maintained by detecting nearby devices using Bluetooth and Geolocation",
 	"orientation" : "portrait",
-	"background_color" : "blue",
+	"background_color" : "#8CBCFC",
 	"related_applications" : [],
 	"prefer_related_applications" : false,
 	"icons" : [
