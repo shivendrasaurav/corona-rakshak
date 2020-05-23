@@ -1,7 +1,9 @@
+html{
+    scroll-behavior: smooth;
+}
 body, p, span, h1, h2, h3, h4, h5{
     font-family: 'Noto Sans', sans-serif;
 }
-
 .icon_large{
     width: 100px;
 }
