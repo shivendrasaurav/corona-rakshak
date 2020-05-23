@@ -6,10 +6,10 @@
 	"display" : "standalone",
 	"start_url" : "./",
 	"short_name" : "Corona Rakshak ",
-	"theme_color" : "blue",
+	"theme_color" : "#8CBCFC",
 	"description" : "App to check whether Social Distancing is being maintained by detecting nearby devices using Bluetooth and Geolocation",
 	"orientation" : "portrait",
-	"background_color" : "#8CBCFC",
+	"background_color" : "#FFFFFF",
 	"related_applications" : [],
 	"prefer_related_applications" : false,
 	"icons" : [
