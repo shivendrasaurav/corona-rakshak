@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel='manifest' href='/manifest.webmanifest'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./icons/icon.ico"/>
+    <link rel="apple-touch-icon" href="./icons/icon.png"/>
+    <meta name="theme-color" content="blue">
     <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
     <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="./styles/style.css" type="text/css" rel="stylesheet">
+    
     <title>Corona Rakshak - Quiz</title>
 </head>
-<body onload="checkCookie(); setStats();">
+<body onload="checkCookie(); setStats(); checkinstall();">
     
     <div id="quiz_body" style="display: none;" class="noscroll_bar" onscroll="scrolldown();">
     
@@ -207,8 +212,105 @@
 
     </div>
 
+    <div class="modal_container" id="install_button_surface">
+        <div class="modal_content zi2">
+            <div class="page_container">
+                <div class="columns large12 medium12 small12">
+                    <br><br>
+                    <img src="./icons/icon.png" class="circular icon_large">
+                    <p class="app_name right"><b>Corona Rakshak</b></p>
+                    <hr><br><br>
+                </div>
+                <div class="columns large12 medium12 small12">
+                    <p class="app_name">Corona Rakshak</p>
+                    <p class="app_desc">
+                        Corona Rakshak is an App which can be used check whether Social Distancing is being maintained by detecting nearby devices using technologies such as Bluetooth and Geolocation.
+                        This is a Decentralized Application with more emphasis on User's Privacy.
+                    </p>
+                    <button class="left large primary_blue" onclick="install(); closeinstaller();">Install</button>
+                    <button class="left primary_red can" onclick="closeinstaller();">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>
 
 <script src="./scripts/indexScript.js"></script>
 <script src="./scripts/bluetoothScripts.js"></script>
+
+<script>
+    let deferredPrompt = null;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        });
+
+        async function install() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            console.log(deferredPrompt)
+            deferredPrompt.userChoice.then(function(choiceResult){
+
+            if (choiceResult.outcome === 'accepted') {
+            console.log('Your PWA has been installed');
+            } else {
+            console.log('User chose to not install your PWA');
+            }
+
+            deferredPrompt = null;
+
+            });
+
+        }
+        closeinstaller();
+        }
+
+        function showinstaller(){
+            document.getElementById("install_button_surface").style.display="Block";
+            document.getElementById("home_body").style.filter="saturate(250%) blur(25px)";
+        }
+        
+        function closeinstaller(){
+            document.getElementById("install_button_surface").style.display="none";
+            document.getElementById("home_body").style.filter="saturate(100%) blur(0px)";
+        }
+</script>
+
+<script>
+        function checkinstall(){
+            if (window.matchMedia('(display-mode: standalone)').matches) {  
+                closeinstaller();
+                console.log('display-mode is standalone');
+            }  
+            else
+                showinstaller();
+        }
+</script>
+
+<script>
+    // This is the "Offline copy of pages" service worker
+
+    // Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+    // Check compatibility for the browser we're running this in
+    if ("serviceWorker" in navigator) {
+        if (navigator.serviceWorker.controller) {
+            console.log("Active service worker found, no need to register");
+        } else {
+            // Register the service worker
+            navigator.serviceWorker
+            .register("pwabuilder-sw.js", {
+                scope: "./"
+            })
+            .then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    }
+</script>
