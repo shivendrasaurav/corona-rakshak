@@ -30,7 +30,7 @@ body{
 */
     background: url('../bg.png');
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
     background-position: 0% 0%;
     color: #1e1e1e;
 }
