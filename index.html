@@ -34,7 +34,7 @@
                 What's Your Name
             </div>
             <div class="options page_container">
-                <input type="text" name="name" id="name"><br>
+                <input type="text" name="name" id="name" required><br>
                 <label>Enter your name</label><br><br>
                 <a href="#q2" class="button pro_but" onclick="setUname();">Proceed</a>
             </div>
@@ -46,7 +46,7 @@
                 What age group do you belong to?
             </div>
             <div class="options page_container">
-                <a href="#q3" class="button pro_but center" onclick="addpoint(1)">0-20</a>
+                <a href="#q3" class="button pro_but center" onclick="addpoint(1);">0-20</a>
                 <a href="#q3" class="button pro_but center" onclick="addpoint(0)">21-40</a>
                 <a href="#q3" class="button pro_but center" onclick="addpoint(1)">41-60</a>
                 <a href="#q3" class="button pro_but center" onclick="addpoint(2)">61-80</a>
@@ -112,7 +112,9 @@
                 <br>
             </div>
             <div class="options page_container">
-                <a href="#fin" class="button pro_but center" onclick="cook();">Complete</a>
+                <a href="#fin" class="button pro_but center" onclick="cook();">Complete</a><br /><br />
+                <p id="err_msg" class="primary_red" style="display: none;"></p>
+                <p id="nm_err_msg" class="primary_red" style="display: none;"></p>
             </div>
         </div>
 
@@ -235,6 +237,7 @@
         </div>
     </div>
 
+    <input id="points" type="number" value="0" style="display: none;">
 
 </body>
 </html>

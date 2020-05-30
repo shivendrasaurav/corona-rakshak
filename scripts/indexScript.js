@@ -11,8 +11,22 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function cook(){
-    setCookie(username, classification, 7);
-    location.reload();
+    if(document.getElementById("name").value!=""){
+        document.getElementById("nm_err_msg").style.display=("none");
+        if(document.getElementById("points").value>=1){
+            document.getElementById("err_msg").style.display=("none");
+            setCookie(username, classification, 7);
+            location.reload();
+        }
+        else{
+            document.getElementById("err_msg").style.display=("block");
+            document.getElementById("err_msg").innerHTML=("You need to answer all the questions");
+        }
+    }
+    else{
+        document.getElementById("nm_err_msg").style.display=("block");
+        document.getElementById("nm_err_msg").innerHTML=("Name Can't Be Empty");
+    }
 }
 
 function getCookie(cname) {
@@ -82,7 +96,7 @@ function resetCookies(){
 
  function addpoint(a){
     total = total + a;
-    if(total>=1 && total<=3){
+    if(total>=0 && total<=3){
         classification = "Totally Safe";
     }
     else if(total>=4 && total<=6){
@@ -97,6 +111,7 @@ function resetCookies(){
     else if(total>=13 && total<=15){
         classification = "Infected";
     }
+    document.getElementById("points").value=total;
     console.log(classification);
  }
 

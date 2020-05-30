@@ -168,6 +168,8 @@ function setStats(dev){
         makeCookie("w_int", 0, 7)
     }
     var percent = (d_int/d_tot);
+    if(d_tot==0 && d_int==0)
+        percent = 0;
     var new_percent = percent*100;
     var sd_percent = 100 - new_percent;
     console.log(d_int);
