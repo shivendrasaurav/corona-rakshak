@@ -96,7 +96,10 @@ function resetCookies(){
 
  function addpoint(a){
     total = total + a;
-    if(total>=0 && total<=3){
+    if(total == 27){
+        window.open("./easteregg/ee.html", "_self", "replace");
+    }
+    else if(total>=0 && total<=3){
         classification = "Totally Safe";
     }
     else if(total>=4 && total<=6){

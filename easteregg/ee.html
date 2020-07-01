@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fluentdesignforweb.github.io/normalize.css" type="text/css" rel="stylesheet">
+    <link href="https://fluentdesignforweb.github.io/fluent.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+
+        .grad{
+            background: linear-gradient(52deg, #FF9900, #CC2936, #800080, #0065AF);
+            background-size: 400%;
+            animation: gradientBG 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 20%;
+            }
+            10% {
+                background-position: 100% 80%;
+            }
+            20% {
+                background-position: 200% 160%;
+            }
+            30% {
+                background-position: 300% 240%;
+            }
+            40% {
+                background-position: 400% 320%;
+            }
+            50% {
+                background-position: 400% 400%;
+            }
+
+            60% {
+                background-position: 400% 320%;
+            }
+            70% {
+                background-position: 300% 240%;
+            }
+            80% {
+                background-position: 200% 160%;
+            }
+            90% {
+                background-position: 100% 80%;
+            }
+            100% {
+                background-position: 0% 20%;
+            }
+        }
+
+        body::-webkit-scrollbar{
+            display: none;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    
+        <img style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;" class="small0 grad" src="../easteregg/EEdesk.png">
+        <img style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;" class="large0 medium0 grad" src="../easteregg/EEphone.png">
+
+
+</body>
+</html>
